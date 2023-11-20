@@ -1,0 +1,95 @@
+.score {
+  position: absolute;
+  left: 85%;
+  top: 5%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 90px;
+  font-weight: bold;
+  padding: 5px;
+  text-align: center;
+}
+.lives {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  display: flex;
+  gap: 5px;
+}
+
+.lives img {
+  width: 50px;
+  height: 50px;
+}
+
+.plansza {
+  height: 800px;
+  background: #aaa;
+  overflow: hidden;
+  position: relative;
+  cursor: none;
+  background: url(./png/board-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.zombie {
+  cursor: none;
+  width: 200px;
+  height: 312px;
+  background: url(./png/walkingdead.png);
+  position: absolute;
+  left: 110%;
+  bottom: 100px; /*maks 360 */
+  animation: zombieAnim 0.5s 0s infinite steps(9), zombieWalk 10s 0s 1 linear;
+}
+.game-over-container {
+  position: absolute;
+  left: 50%;
+  top: 5%;
+  transform: translateX(-50%);
+  border: 1px solid white;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  padding: 5px;
+  text-align: center;
+  display: none;
+}
+
+.game-over-message {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.restart-button {
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: rgb(240, 208, 82);
+  color: #fff;
+  border: solid;
+  border-radius: 20%;
+  border-color: orange;
+  cursor: none;
+}
+
+#image {
+  pointer-events: none;
+  position: absolute;
+  overflow: hidden;
+  width: 300px;
+  height: 300px;
+  z-index: 1000;
+}
+@keyframes zombieAnim {
+  100% {
+    background-position: -1800px 0;
+  }
+}
+
+@keyframes zombieWalk {
+  100% {
+    left: -300px;
+  }
+}

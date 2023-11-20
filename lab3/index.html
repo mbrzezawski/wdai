@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product List</title>
+  </head>
+  <body>
+    <input type="text" id="filterInput" placeholder="Wpisz nazwę produktu" />
+    <button onclick="filterProducts()">Filtruj</button>
+    <button onclick="sortProducts('asc')">Sortuj A-Z</button>
+    <button onclick="sortProducts('dsc')">Sortuj Z-A</button>
+    <button onclick="resetSort()">Resetuj sortowanie</button>
+
+    <ul id="productList"></ul>
+
+    <script>
+      const apiUrl = "https://dummyjson.com/products";
+
+      async function fetchProducts() {
+        try {
+          const response = await fetch(apiUrl);
+          const data = await response.json();
+          if (Array.isArray(data.products)) {
+            const productList = data.products.slice(0, 30).map((product) => ({
+              title: product.title,
+              description: product.description,
+              images: product.images[0],
+            }));
+            renderProductList(productList);
+          } else {
+            console.error(
+              "Nieprawidłowy format danych - oczekiwano tablicy produktów."
+            );
+          }
+        } catch (error) {
+          console.error("Wystąpił błąd podczas pobierania danych:", error);
+        }
+      }
+
+      function renderProductList(products) {
+        const productList = document.getElementById("productList");
+        productList.innerHTML = "";
+
+        products.forEach((product) => {
+          const li = document.createElement("li");
+          li.innerHTML = `
+            <strong>${product.title}</strong> - ${product.description}
+            <img src="${
+              Array.isArray(product.images) ? product.images[0] : product.images
+            }" alt="${product.title}" width="100px" height="100px"/>
+          `;
+          productList.appendChild(li);
+        });
+      }
+
+      async function filterProducts() {
+        try {
+          const filterInput = document.getElementById("filterInput");
+          const filterValue = filterInput.value.toLowerCase();
+
+          const response = await fetch(apiUrl);
+          const data = await response.json();
+          if (Array.isArray(data.products)) {
+            const filteredProducts = data.products
+              .filter((product) =>
+                product.title.toLowerCase().includes(filterValue)
+              )
+              .slice(0, 30);
+            renderProductList(filteredProducts);
+          } else {
+            console.error(
+              "Nieprawidłowy format danych - oczekiwano tablicy produktów."
+            );
+          }
+        } catch (error) {
+          console.error("Wystąpił błąd podczas pobierania danych:", error);
+        }
+      }
+
+      async function sortProducts(order) {
+        try {
+          const response = await fetch(apiUrl);
+          const data = await response.json();
+          if (Array.isArray(data.products)) {
+            const sortedProducts = [...data.products]
+              .sort((a, b) => {
+                const nameA = a.title.toUpperCase();
+                const nameB = b.title.toUpperCase();
+                return order === "asc"
+                  ? nameA.localeCompare(nameB)
+                  : nameB.localeCompare(nameA);
+              })
+              .slice(0, 30);
+            renderProductList(sortedProducts);
+          } else {
+            console.error(
+              "Nieprawidłowy format danych - oczekiwano tablicy produktów."
+            );
+          }
+        } catch (error) {
+          console.error("Wystąpił błąd podczas pobierania danych:", error);
+        }
+      }
+
+      function resetSort() {
+        fetchProducts();
+      }
+
+      fetchProducts();
+    </script>
+  </body>
+</html>
