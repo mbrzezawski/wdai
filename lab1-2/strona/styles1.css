@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Poppins:wght@200&display=swap");
+
+/* pierwsza podstrona */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+nav {
+  height: 80px;
+  background: #068fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem calc((100vw-1300px) / 2);
+}
+.logo-img {
+  margin-left: 30px;
+}
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0 2rem;
+  margin-right: 31px;
+}
+.social {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 600px;
+}
+.menu {
+  margin-right: 50px;
+}
+
+nav a {
+  padding: 8px 1.5rem;
+  color: white;
+  text-decoration: none;
+  font-size: 1.3rem;
+  text-shadow: 2px 2px black;
+}
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  background: url(./tenis/456748-Trey-Trimble-palm-trees-tennis-court-vaporwave-digital-art.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.box {
+  width: 400px;
+  height: 450px;
+  position: relative;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: 2px solid;
+  border-color: rgb(200, 200, 200);
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+}
+
+h2 {
+  font-size: 2em;
+  color: white;
+  text-align: center;
+}
+
+.input-box {
+  position: relative;
+  margin: 30px 0px;
+  width: 310px;
+  border-bottom: 2px solid white;
+}
+
+.input-box label {
+  position: absolute;
+  left: 50px;
+  top: 50%;
+  transform: translateY(-45%);
+  font-size: 1em;
+  color: white;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+input:focus ~ label,
+input:valid ~ label {
+  top: -5px;
+}
+
+.input-box input {
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  outline: none;
+  border: none;
+  padding: 0 35px 0 5px;
+  font-size: 1em;
+  color: white;
+}
+
+.forget {
+  margin: -15px 0 30px;
+  font-size: 0.9em;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+.forget-pass {
+  margin-left: 20px;
+}
+.forget label a {
+  color: white;
+  text-decoration: none;
+}
+.forget label a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.forget label input {
+  margin-right: 3px;
+  transform: translateY(2px);
+  background: transparent;
+}
+
+button {
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  background: white;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  font-weight: 600px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.7;
+}
+.register {
+  margin: 15px 0 30px;
+  font-size: 0.9em;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.register label a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+.register label a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
