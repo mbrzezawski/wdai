@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0; /* Nowy kolor tła strony */
+}
+
+.container {
+  max-width: 1200px; /* Zwiększenie maksymalnej szerokości kontenera */
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff; /* Nowy kolor tła kontenera */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Subtelny cień wokół kontenera */
+}
+
+nav {
+  background-color: #333; /* Nowy kolor tła nawigacji */
+  padding: 15px 0; /* Zwiększenie wewnętrznego odstępu nawigacji */
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Wyśrodkowanie elementów nawigacji */
+}
+
+nav li {
+  margin-right: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff; /* Nowy kolor tekstu nawigacji */
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+nav a:hover {
+  text-decoration: underline;
+  color: #ff4500; /* Nowy kolor tekstu nawigacji po najechaniu myszką */
+}
